@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ ! $# -eq 2 ]
+	then
+		printf "Usage: dpkg-find [PACKAGE-PATTERN] [FILE]\n\tWhere package-pattern - package to search for.\n\tfile - file\' from package to find.\nProgram will find file path by searching it in packages.\n"
+	fi
+
+for n in $(aptitude search "$1 ~i" -F "%p" | paste -sd " " -); do dpkg-query -L $n | grep $2; done
