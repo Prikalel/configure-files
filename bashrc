@@ -128,5 +128,7 @@ export GREP_COLORS="ms=01;32"
 # alias for locale
 alias C="true; LANGUAGE=en"
 
+alias gts="git status"
+
 # ble activation
 source ~/.local/share/blesh/ble.sh
