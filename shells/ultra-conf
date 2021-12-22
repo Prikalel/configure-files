@@ -1,2 +1,2 @@
 #!/bin/bash
-autoreconf -fisv && ./configure && make
+autoreconf -fisv && ./configure "$@" && make clean all
