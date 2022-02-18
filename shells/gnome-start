@@ -1,0 +1,14 @@
+#!/bin/bash
+# Select dayzone based on current time:
+TIME=$(date "+%H")
+if test \( $TIME -ge 5 \) -a \( $TIME -le 12 \); then
+  DAYZONE="morning"
+elif test \( $TIME -ge 13 \) -a \( $TIME -le 18 \); then
+  DAYZONE="afternoon"
+elif test \( $TIME -ge 19 \) -a \( $TIME -le 22 \); then
+  DAYZONE="evening"
+else
+  DAYZONE="night"
+fi
+# Open 2 tabs : one for superuser + immidiately update packages, another - for user alex (print greetings)...
+gnome-terminal -- bash -c "(gnome-terminal --tab -- sudo bash -c \"apt-up; bash\"); echo Good $DAYZONE, dear Prikalel\!; bash"
